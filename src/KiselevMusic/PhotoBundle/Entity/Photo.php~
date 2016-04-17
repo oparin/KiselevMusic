@@ -1,0 +1,38 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: oparin
+ * Date: 05.09.14
+ * Time: 12:00
+ */
+
+namespace KiselevMusic\PhotoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Class Photo
+ * @package KiselevMusic\PhotoBundle\Entity
+ *
+ * @ORM\Entity
+ * @ORM\Table(name="km_photo")
+ */
+class Photo
+{
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $image;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $public = false;
+} 

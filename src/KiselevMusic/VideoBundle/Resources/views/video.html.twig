@@ -1,0 +1,48 @@
+{% extends ('::base.html.twig') %}
+
+{% block styles %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('lib/player/mediaelementplayer.css') }}" type="text/css">
+{% endblock styles %}
+
+{% block content_navigation %}
+    <div id="breadcrumbs">
+        <a href="{{ path('kiselevmusic_home_home_index') }}">Главная</a> /
+        <span>Видео</span>
+        <h1>Видео</h1>
+    </div>
+{% endblock content_navigation %}
+
+{% block content %}
+<div class="">
+    <div class="clearfix"></div>
+    <div class="wrapper comment_box">
+        {% for video in videos %}
+            <div class="img_box comment">
+                <video width="400" height="230">
+                    <source type="video/mp4" src="{{ asset('uploads/video/') ~ video.fileName }}">
+                </video>
+                <div class="info">
+                    <h3 class="m_bottom_zero">
+                        <div class="video-title">{{ video.title }}</div>
+                    </h3>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
+
+{% block js %}
+    {{ parent() }}
+
+    <script type="text/javascript" src="{{ asset('lib/player/mediaelement-and-player.min.js') }}"></script>
+    <script>
+        // using jQuery
+        $('video').mediaelementplayer({
+            startVolume: 1.0
+//            loop: true
+        });
+    </script
+{% endblock js %}

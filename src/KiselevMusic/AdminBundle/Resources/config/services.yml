@@ -1,0 +1,5 @@
+services:
+    grid.column.video:
+        class: KiselevMusic\AdminBundle\Grid\Column\PhotoColumn
+        tags:
+            - { name: grid.column.extension }

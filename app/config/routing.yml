@@ -1,0 +1,44 @@
+kiselev_music_admin:
+    resource: "@KiselevMusicAdminBundle/Controller/"
+    type:     annotation
+    prefix:   /administrator
+
+kiselev_music_user:
+    resource: "@KiselevMusicUserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+kiselev_music_audio:
+    resource: "@KiselevMusicAudioBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+kiselev_music_video:
+    resource: "@KiselevMusicVideoBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+kiselev_music_photo:
+    resource: "@KiselevMusicPhotoBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+kiselev_music_home:
+    resource: "@KiselevMusicHomeBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+admin_login:
+    pattern:  /administrator/login
+    defaults: { _controller: FOSUserBundle:Security:login }
+
+admin_check:
+    pattern:  /administrator/login_check
+    defaults: { _controller: FOSUserBundle:Security:check }
+
+admin_logout:
+    pattern:  /administrator/logout
+    defaults: { _controller: FOSUserBundle:Security:logout }

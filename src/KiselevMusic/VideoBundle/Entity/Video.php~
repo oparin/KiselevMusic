@@ -1,0 +1,43 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: oparin
+ * Date: 20.09.14
+ * Time: 7:47
+ */
+
+namespace KiselevMusic\VideoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Class Video
+ * @package KiselevMusic\VideoBundle\Entity
+ *
+ * @ORM\Entity
+ * @ORM\Table(name="km_video")
+ */
+class Video
+{
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string", name="file_name")
+     */
+    protected $fileName;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    protected $public = false;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $title;
+} 

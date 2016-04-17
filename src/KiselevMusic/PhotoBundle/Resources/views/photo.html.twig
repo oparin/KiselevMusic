@@ -1,0 +1,55 @@
+{% extends ('::base.html.twig') %}
+
+{% block styles %}
+    {{ parent() }}
+
+    <link rel="stylesheet" href="{{ asset('lib/fancybox/jquery.fancybox.css?v=2.1.5') }}" type="text/css" media="screen">
+    <link rel="stylesheet" href="{{ asset('lib/fancybox/helpers/jquery.fancybox-buttons.css?v=1.0.5') }}" type="text/css" media="screen" />
+{% endblock styles %}
+
+{% block content_navigation %}
+    <div id="breadcrumbs">
+        <a href="{{ path('kiselevmusic_home_home_index') }}">Главная</a> /
+        <span>Фото</span>
+        <h1>Фото</h1>
+    </div>
+{% endblock content_navigation %}
+
+{% block content %}
+    <div class="container_12">
+        <div class="pro_wrapper">
+            {% for photo in photos %}
+                <div class="grid_3 gall">
+                    <div class="pro_wrapper pro_pad_port">
+                        <a class="fancybox-button" rel="fancybox-button" title="" href="{{ asset('uploads/photo/' ~ photo.image) }}">
+                            <img id="{{ photo.id }}" width="200" src="{{ asset('uploads/photo/crop/' ~ photo.image) }}">
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
+
+{% block js %}
+    {{ parent() }}
+
+    <script type="text/javascript" src="{{ asset('js/jquery.mousewheel-3.0.6.pack.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('lib/fancybox/jquery.fancybox.pack.js?v=2.1.5') }}"></script>
+    <script type="text/javascript" src="{{ asset('lib/fancybox/helpers/jquery.fancybox-buttons.js?v=1.0.5') }}"></script>
+    <script type="text/javascript" src="{{ asset('lib/fancybox/helpers/jquery.fancybox-media.js?v=1.0.6') }}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".fancybox-button").fancybox({
+                prevEffect		: 'none',
+                nextEffect		: 'none',
+                closeBtn		: false,
+                helpers		: {
+                    title	: { type : 'inside' },
+                    buttons	: {}
+                }
+            });
+        });
+    </script>
+{% endblock js %}

@@ -1,0 +1,21 @@
+{% extends ':admin:admin_base.html.twig' %}
+
+{% block content_title %}
+    <i class="fa fa-file-photo-o"></i>&nbsp; Фото - Все Фото
+{% endblock content_title %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box">
+                <header>
+                    <div class="icons">
+                        <i class="fa fa-table"></i>
+                    </div>
+                    {#<h5>Dynamic Table</h5>#}
+                </header>
+                {{ grid(grid, ':admin:admin_grid.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

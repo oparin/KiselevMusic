@@ -1,0 +1,70 @@
+{% extends ':admin:admin_base.html.twig' %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ asset('lib/metis/lib/daterangepicker/daterangepicker-bs3.css') }}">
+    <link rel="stylesheet" href="{{ asset('lib/metis/lib/datepicker/css/datepicker.css') }}">
+{% endblock styles %}
+
+{% block content_title %}
+    <i class="fa fa-file-photo-o"></i>&nbsp; Афиши - Изменить/Добавить Афишу
+{% endblock content_title %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box">
+                <header>
+                    <div class="icons">
+                        <i class="fa fa-edit"></i>
+                    </div>
+                    {#<h5>Dynamic Table</h5>#}
+                </header>
+                <div class="body collapse in" id="div-1" aria-expanded="true" style="">
+                    {{ form_start(form, {'attr': {'class': 'form-horizontal'} }) }}
+                    <div class="form-group">
+                        {{ form_label(form.date, 'Дата:', {'label_attr': {'class': 'control-label col-lg-2'}}) }}
+                        <div class="col-lg-3">
+                            {{ form_widget(form.date) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form_label(form.description, 'Текст:', {'label_attr': {'class': 'control-label col-lg-2'}}) }}
+                        <div class="col-lg-4">
+                            {{ form_widget(form.description, {'attr': {'cols': '45'}}) }}
+                        </div>
+                    </div>
+                    {{ form_rest(form) }}
+                    <div class="form-actions no-margin-bottom">
+                        <div class="col-lg-2"></div>
+                        <input type="submit" class="btn btn-primary" value="Сохранить">
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block js %}
+    <script src="{{ asset('lib/metis/lib/screenfull/screenfull.js') }}"></script>
+    <script src="{{ asset('lib/metis/lib/jquery.uniform/jquery.uniform.min.js') }}"></script>
+    <script src="{{ asset('lib/metis/lib/inputlimiter/jquery.inputlimiter.js') }}"></script>
+    <script src="{{ asset('lib/metis/lib/chosen/chosen.jquery.min.js') }}"></script>
+    <script src="{{ asset('lib/metis/lib/colorpicker/js/bootstrap-colorpicker.js') }}"></script>
+    <script src="{{ asset('lib/metis/lib/tagsinput/jquery.tagsinput.js') }}"></script>
+    <script src="{{ asset('lib/metis/lib/validVal/js/jquery.validVal.min.js') }}"></script>
+    <script src="{{ asset('lib/metis/lib/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('lib/metis/lib/daterangepicker/daterangepicker.js') }}"></script>
+    <script src="{{ asset('lib/metis/lib/datepicker/js/bootstrap-datepicker.js') }}"></script>
+    <script src="{{ asset('lib/metis/lib/timepicker/js/bootstrap-timepicker.min.js') }}"></script>
+    <script src="{{ asset('lib/metis/lib/switch/js/bootstrap-switch.min.js') }}"></script>
+    <script src="{{ asset('lib/metis/lib/autosize/jquery.autosize.min.js') }}"></script>
+    <script src="{{ asset('lib/metis/lib/jasny-bootstrap/js/jasny-bootstrap.min.js') }}"></script>
+    <script>
+        $(function() {
+            $('.dp').datepicker({
+                format: 'yyyy-mm-dd'
+            });
+        });
+    </script>
+{% endblock js %}

@@ -1,0 +1,67 @@
+{% extends ('::base.html.twig') %}
+
+{% block styles %}
+    {{ parent() }}
+
+{% endblock styles %}
+
+{% block content_navigation %}
+    <div id="cont_left">
+    <div id="breadcrumbs">
+        <a href="{{ path('kiselevmusic_home_home_index') }}">Главная</a> /
+        <span>Контакты</span>
+        <h1>Контакты</h1>
+    </div>
+{% endblock content_navigation %}
+
+{% block content %}
+    <div class="">
+        <p><span style="font-size: 14px;">На все интересующие Вас вопросы отвечу по следующим контактам:</span></p>
+        <p><span style="font-size: 14px;">
+                <strong>Телефон:</strong> +7(965) 347 28 18
+                <br><br>
+                <strong>Почта:</strong> <a href="mailto:kiselev_music@mail.ru">kiselev_music@mail.ru</a>
+            </span>
+        </p>
+        <p align="justify"><span style="font-size: 14px;"><strong>&nbsp;</strong></span></p>
+    </div>
+    </div>
+    <div id="cont_right">
+        <a name="form"></a>
+        <h2>Обратная связь</h2><div class="entry">
+
+            <form action="" method="post" id="sForm">
+                <div id="contactForm">
+                    <div class="label">
+                        <em>* Все поля обязательны для заполнения</em>            </div>
+                    <div class="cont1">
+                        <label for="name">Ваше имя:</label>
+                        <input type="text" name="name" value="" id="name" class="text" required="required">
+                    </div>
+                    <div class="cont2">
+                        <label for="email">E-mail \ Телефон:</label>
+                        <input type="text" name="email" id="email" class="text" required="required">
+                    </div>
+                    <div>
+                        <label for="message">Сообщение:</label>
+                        <textarea name="message" id="message" required="required"></textarea>
+                    </div>
+                    <div style="margin-top: 5px;">
+                        <input type="submit" class="submit" id="submitBut" value="Отправить">
+                    </div>
+                </div>
+            </form>
+            {% for flashMessage in app.session.flashbag.get('notice') %}
+                <div style="background-color: greenyellow; margin-top: 35px; height: 30px; padding-top: 10px; border-radius: 4px; text-align: center; color: #000000">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+        </div>
+        <br>
+    </div>
+{% endblock content %}
+
+{% block js %}
+    {{ parent() }}
+
+{% endblock js %}

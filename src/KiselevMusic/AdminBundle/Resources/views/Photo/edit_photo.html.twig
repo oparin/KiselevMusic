@@ -1,0 +1,110 @@
+{% extends ':admin:admin_base.html.twig' %}
+
+{% block content_title %}
+    <i class="fa fa-file-photo-o"></i>&nbsp; Фото - Изменить/Добавить Фото
+{% endblock content_title %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="box">
+                <header>
+                    <div class="icons">
+                        <i class="fa fa-edit"></i>
+                    </div>
+                    {#<h5>Dynamic Table</h5>#}
+                </header>
+                <div class="body collapse in" id="div-1" aria-expanded="true" style="">
+                    {{ form_start(form, {'attr': {'class': 'form-horizontal'} }) }}
+                    <div id="image_box" style="border: 1px solid #808080; padding: 2px; margin-left: 146px">
+                        <img id="image" src="#" style="max-width: 822px">
+                    </div>
+                    <div class="form-group {% if form_errors(form.image) %}has-error{% endif %}">
+                        {{ form_label(form.image, 'Фото', {'label_attr': {'class': 'control-label col-lg-1'}}) }}
+                        <div class="col-lg-4">
+                            {{ form_widget(form.image, {'attr': {'style': 'margin-left:61px', 'onchange': 'readURL(this);'}}) }}
+                            <input type="hidden" id="x" name="x" />
+                            <input type="hidden" id="y" name="y" />
+                            <input type="hidden" id="w" name="w" />
+                            <input type="hidden" id="h" name="h" />
+                            {% if form_errors(form.image) %}
+                                <span id="required2-error" class="help-block">
+                                    {{ form_errors(form.image) }}
+                                </span>
+                            {% endif %}
+                        </div>
+                    </div><!-- /.form-group -->
+                    <div class="form-group {% if form_errors(form.public) %}has-error{% endif %}">
+                        {{ form_label(form.public, 'Опубликовать', {'label_attr': {'class': 'control-label col-lg-1'}}) }}
+                        <div class="col-lg-2">
+                            {{ form_widget(form.public, {'attr': {'class': 'form-control', 'placeholder': '0'}}) }}
+                            {% if form_errors(form.public) %}
+                                <span id="required2-error" class="help-block">
+                                    {{ form_errors(form.public) }}
+                                </span>
+                            {% endif %}
+                        </div>
+                    </div><!-- /.form-group -->
+                    {{ form_rest(form) }}
+                    <div class="form-group">
+                        <div class="col-lg-2"></div>
+                        <div class="col-lg-4">
+                            <input type="submit" class="btn btn-primary" value="Save" style="margin-left: -22px">
+                        </div>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+{% block js %}
+    {#<script>#}
+        {#$(function() {#}
+            {#Metis.formWizard();#}
+        {#});#}
+    {#</script>#}
+    {#<script>#}
+        {#$(function() {#}
+            {#Metis.formGeneral();#}
+        {#});#}
+    {#</script>#}
+    <script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                $('#image_box').html('');
+                $('#image_box').html('<img id="image" src="#" style="max-width: 822px">');
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#image')
+                            .attr('src', e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+
+                createCrop();
+            }
+        }
+
+        function createCrop()
+        {
+            $(function(){
+                setTimeout(function() {
+                    $('#image').Jcrop({
+                        aspectRatio: 1,
+                        onSelect: updateCoords,
+                        minSize: [ 200, 270 ],
+                        maxSize: [ 200, 270 ]
+                    });
+                }, 1000);
+            });
+        };
+
+        function updateCoords(c)
+        {
+            $('#x').val(c.x);
+            $('#y').val(c.y);
+            $('#w').val(c.w);
+            $('#h').val(c.h);
+        };
+    </script>
+{% endblock js %}

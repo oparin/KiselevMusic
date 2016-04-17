@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" class="csstransforms csstransforms3d csstransitions" slick-uniqueid="3"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>KiselevMusic.ru - Официальный сайт Сергея Киселева</title>
+    <meta name="keywords" content="KiselevMusic.ru - Официальный сайт Сергея Киселева">
+    <meta name="description" content="KiselevMusic.ru - Официальный сайт Сергея Киселева">
+
+    <meta name="viewport" content="width=device-width; initial-scale=1">
+    {% block styles %}
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/default.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/template.css') }}" type="text/css">
+        <link rel="stylesheet" href="{{ asset('css/layout.css') }}" type="text/css">
+    {% endblock styles %}
+
+    <style>
+
+        iframe .media-grid a {
+            padding: 14px!important;
+        }
+
+    </style>
+
+
+</head>
+<body class="com_content view-featured task- itemid-101 body__home" data-twttr-rendered="true">
+
+<!-- Body -->
+<div id="wrapper">
+<div class="wrapper-inner">
+
+<!-- Top -->
+<div id="top-row">
+    <div class="row-container">
+        <div class="container-fluid">
+            <div id="top" class="row-fluid">
+                <div class="moduletable navigation  span12">
+                    <ul id="top-menu" class="sf-menu sf-js-enabled">
+                        <li class="firstItem {% if app.request.attributes.get('_route') == 'kiselevmusic_home_home_index' %}current active{% endif %}">
+                            <a href="{{ path('kiselevmusic_home_home_index') }}">Главная</a>
+                        </li>
+                        <li class="{% if app.request.attributes.get('_route') == 'kiselevmusic_audio_audio_poluver' %}current active{% endif %}">
+                            <a href="{{ path('kiselevmusic_audio_audio_poluver') }}">Аудио</a>
+                        </li>
+                        <li class="{% if app.request.attributes.get('_route') == 'kiselevmusic_video_video_video' %}current active{% endif %}">
+                            <a href="{{ path('kiselevmusic_video_video_video') }}">Видео</a>
+                        </li>
+                        <li class="{% if app.request.attributes.get('_route') == 'kiselevmusic_photo_photo_photo' %}current active{% endif %}">
+                            <a href="{{ path('kiselevmusic_photo_photo_photo') }}">Фото</a>
+                        </li>
+                        <li class="{% if app.request.attributes.get('_route') == 'kiselevmusic_home_contacts_contacts' %}current active{% endif %}">
+                            <a href="{{ path('kiselevmusic_home_contacts_contacts') }}">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Header -->
+<div id="header-row">
+    <div class="row-container">
+        <div class="container-fluid">
+            <header>
+                <div class="row-fluid">
+                    <div class="clearfix"></div>
+                    <div id="textlogo">
+                        <a href="http://varvara-music.ru/afisha/varvara-vystupit-s-shou-programmoj-na-yuge-rossii" class="textlogo"></a>
+                    </div>
+                </div>
+            </header>
+        </div>
+    </div>
+</div>
+
+<!-- Feature -->
+<div id="feature-row">
+<div class="row-container">
+<div class="container-fluid">
+<div class="row-fluid">
+</div>
+</div>
+</div>
+</div>
+<!-- Maintop -->
+
+<!-- Main Content row -->
+<div id="content-row">
+    <div class="row-container">
+        <div class="container-fluid">
+            <div class="content-inner row-fluid">
+                {% block content_navigation %}
+                {% endblock content_navigation %}
+
+                {% block content %}
+                {% if posters %}
+                    <div id="aside-left" class="span4">
+                        <aside>
+                            <div class="moduletable concerts">
+                                <h3 class="moduleTitle "><a href="http://www.varvara-music.ru/afisha">Афиша</a></h3>
+                                <div class="mod-newsflash-adv mod-newsflash-adv__concerts">
+                                    {% for poster in posters %}
+                                        <div class=" item item_num0 item__module" style="float: left">
+                                            <!-- Intro Image -->
+                                            <div class="item_content">
+                                                <!-- Item title -->
+                                                <!-- Introtext -->
+                                                <div class="item_introtext">
+                                                    <h2>{{ poster.date|date('d.m.Y') }}</h2>
+                                                    <a class="btn btn-info readmore event">{{ poster.description }}</a>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    {% endfor %}
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </aside>
+                    </div>
+                {% endif %}
+                {#<div id="component" class="span6">#}
+
+                    {#<aside>#}
+                        {#<div class="moduletable news">#}
+                            {#<h3 class="moduleTitle "><a href="http://www.varvara-music.ru/stati/novosti">Новости</a></h3>#}
+                            {#<div class="mod-newsflash-adv mod-newsflash-adv__news">#}
+                                {#<div class=" item item_num1 item__module  ">#}
+                                    {#<div class="item_published">#}
+                                        {#10.08.2014#}
+                                    {#</div>#}
+                                    {#<!-- Intro Image -->#}
+                                    {#<div class="item_content">#}
+                                        {#<!-- Item title -->#}
+                                        {#<h5 class="item_title item_title__news">#}
+                                            {#<a href="http://www.varvara-music.ru/stati/novosti/pevica-varvara-zashhitit-semejnye-cennosti">#}
+                                                {#Певица Варвара защитит семейные ценности</a>#}
+                                        {#</h5>#}
+                                        {#<!-- Introtext -->#}
+                                        {#<div class="item_introtext">#}
+                                            {#<div class="img"><a href="http://www.varvara-music.ru/stati/novosti/pevica-varvara-zashhitit-semejnye-cennosti"><img src="./Варвара - Официальный сайт певицы_files/691-z262.crop-207x159.83007255b1.jpg" _width="207" _height="159" crop="1" _id="216"></a></div>#}
+                                            {#<p> Варвара примет участие в фестивале «За жизнь», который является крупнейшим форумом международного русскоязычного движения в защиту жизни. Его участники осуществляют свою деятельность в целях прекращения убийства детей до рождения; оказания помощи беременным..</p>#}
+                                        {#</div>#}
+                                        {#<!-- Read More link -->#}
+                                        {#<div class="clearfix"></div>#}
+
+                                    {#</div>#}
+                                    {#<div class="clearfix"></div>#}
+                                {#</div>#}
+                                {#<div class=" item item_num2 item__module  ">#}
+                                    {#<div class="item_published">#}
+                                        {#28.07.2014#}
+                                    {#</div>#}
+                                    {#<!-- Intro Image -->#}
+                                    {#<div class="item_content">#}
+                                        {#<!-- Item title -->#}
+                                        {#<h5 class="item_title item_title__news">#}
+                                            {#<a href="http://www.varvara-music.ru/stati/novosti/novyj-letnij-xit-ot-varvary">#}
+                                                {#Новый летний хит от Варвары</a>#}
+                                        {#</h5>#}
+                                        {#<!-- Introtext -->#}
+                                        {#<div class="item_introtext">#}
+                                            {#<div class="img"><a href="http://www.varvara-music.ru/stati/novosti/novyj-letnij-xit-ot-varvary"><img src="./Варвара - Официальный сайт певицы_files/514-ves_mir_za_nas.crop-207x159.d6fcf8ca65.jpg" _width="207" _height="159" crop="1" _id="215"></a></div>#}
+                                            {#<p> Уважаемые поклонники!#}
+                                                {#Варвара представляет Вашему вниманию свою новую песню под названием "Весь мир за нас". Данная композиция была выбрана не просто так. Несколько месяцев назад проводился конкурс среди ее поклонников на одном из общественно-информационных ресурсов...</p>#}
+                                        {#</div>#}
+                                        {#<!-- Read More link -->#}
+                                        {#<div class="clearfix"></div>#}
+
+                                    {#</div>#}
+                                    {#<div class="clearfix"></div>#}
+                                {#</div>#}
+                                {#<div class="clearfix"></div>#}
+                                {#<a href="http://www.varvara-music.ru/stati/novosti">Все новости</a>#}
+                            {#</div>#}
+                        {#</div>#}
+                    {#</aside>#}
+
+                    {#<!-- Content-bottom -->#}
+                {#</div>#}
+                {% endblock content %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Mainbottom -->
+
+<!-- Bottom -->
+<div id="push"></div>
+</div>
+</div>
+
+<div id="footer-wrapper">
+    <div class="footer-wrapper-inner">
+        <!-- Footer -->
+
+        <!-- Copyright -->
+        <div id="copyright-row">
+            <div class="row-container">
+                <div class="container-fluid">
+                    <div class="row-fluid">
+                        <!-- Logo -->
+                        <div id="copyright" class="span5">
+                            © 2014 «KiselevMusic.ru - Официальный сайт Сергея Киселёва».<br>
+                            Разработка и поддержка —
+                            <a target="blank" href="mailto:oparin85@gmail.com">Николай</a>
+                            <br>
+                        </div>
+                        <div class="moduletable footermenu ">
+                            <div class="mod-menu__social">
+                                <ul class="menu social">
+                                    <li class="item-148">
+                                        <a href="http://vk.com/kiselevmusic" target="_blank">
+                                            <img src="{{ asset('images/social/vk_on.png') }}" alt="">
+                                        </a>
+                                    </li>
+                                    <li class="item-146 firstItem" target="_blank">
+                                        <a class="facebook" href="https://www.facebook.com/kiselevmusic">Facebook</a>
+                                    </li>
+                                    <li class="item-148 lastItem" target="_blank">
+                                        <a class="twitter" href="https://twitter.com/kiselevmusic">Twitter</a>
+                                    </li>
+                                    <li class="item-148">
+                                        <a href="http://www.youtube.com/channel/UCO2r0LhSzEHOHdO3hOFjVLA?feature=watch" target="_blank">
+                                            <img src="{{ asset('images/social/youtube_icon.png') }}" alt="">
+                                        </a>
+                                    </li>
+                                    <li class="item-148">
+                                        <a href="skype:kiselevmusic?chat" target="_blank">
+                                            <img src="{{ asset('images/social/skype_icon.png') }}" alt="">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block js %}
+    <script type="text/javascript" src="{{ asset('js/jquery-1.10.1.min.js') }}"></script>
+{% endblock js %}
+
+</body>
+</html>

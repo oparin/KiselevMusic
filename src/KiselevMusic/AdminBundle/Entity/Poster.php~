@@ -1,0 +1,38 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: oparin
+ * Date: 18.07.15
+ * Time: 16:22
+ */
+
+namespace KiselevMusic\AdminBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Class Poster
+ * @package KiselevMusic\AdminBundle\Entity
+ *
+ * @ORM\Entity
+ * @ORM\Table(name="km_poster")
+ */
+class Poster
+{
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    protected $date;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $description;
+}
